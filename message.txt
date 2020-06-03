@@ -1,0 +1,20 @@
+Today is Wednesday.
+03 June, 20
+--------------
+You are 48 years old today.
+--------------
+Euro to USD Exchange rate is: 1.117
+--------------
+The high temprature should be 19 C.
+Currently the temp is 18 C. 
+With current humidity at 88%.
+--------------
+Covid stats for Malta (last four days)
+Date:		Confirmed:		Deaths:		Recoveries:
+2020-5-30		618				9		525
+2020-5-31		618				9		534
+2020-6-1		619				9		537
+2020-6-2		620				9		554
+Total number of active cases: 57
+Population of Malta: 441,543
+Current population infected: 0.0129%

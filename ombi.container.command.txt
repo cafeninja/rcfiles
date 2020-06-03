@@ -1,0 +1,7 @@
+docker create --name=ombi -e PUID=1000 -e PGID=1000 -e TZ=Europe/Rome -p 32770:3579 -v /var/lib/docker/volumes/ombi-config:/config --restart unless-stopped linuxserver/ombi
+
+
+
+
+
+https://hub.docker.com/r/linuxserver/ombi/

@@ -1,0 +1,3 @@
+docker create --name=portainer --restart=always -v /home/docker/portainer/data:/data -v /var/run/docker.sock:/var/run/docker.sock -e PGID=1001 -e PUID=1001 -e TZ=Europe/Rome -p 9000:9000 portainer/portainer
+
+https://www.smarthomebeginner.com/install-portainer-using-docker/

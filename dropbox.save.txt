@@ -1,0 +1,40 @@
+cd ~
+rm .bashrc
+rm .bash_alias
+
+rm bin
+rm .vim*
+rm .common-linux-commands
+rm .irssi/config
+rm .irssi/default.theme
+rm .password.gpg
+rm .synergy.conf
+ln -s ~/Dropbox/linux-mac/backup/bash_alias .bash_alias
+ln -s ~/Dropbox/linux-mac/backup/bashrc .bashrc
+ln -s ~/Dropbox/linux-mac/backup/vim-spellfile.{encoding}.add .vim-spellfile.{encoding}.add
+ln -s ~/Dropbox/linux-mac/backup/vim-spellfile.{encoding}.add.spl .vim-spellfile.{encoding}.add.spl
+
+ln -s ~/Dropbox/linux-mac/backup/vimrc .vimrc
+ln -s ~/Dropbox/linux-mac/backup/bin .
+ln -s ~/Dropbox/linux-mac/backup/common-linux-commands.txt .common-linux-commands
+ln -s ~/Dropbox/linux-mac/password.gpg .password.gpg
+ln -s ~/Dropbox/linux-mac/backup/synergy.conf.home .synergy.conf
+mkdir .irssi
+ln -s ~/Dropbox/linux-mac/backup/irssi-config .irssi/config
+ln -s ~/Dropbox/linux-mac/backup/irssi.default.theme .irssi/default.theme
+mkdir ~/.config/pianobar
+ln -s ~/Dropbox/linux-mac/backup/pianobar.config ~/.config/pianobar/config
+mkdir -p .vim/plugin
+cp Dropbox/linux-mac/backup/gnupg.vim .vim/plugin
+ln -s ~/Dropbox/linux-mac/backup/gnupg .gnupg
+cp Dropbox/linux-mac/backup/pidgin.tar.gz .
+tar zxf pidgin.tar.gz
+rm pidgin.tar.gz
+ln -s ~/Dropbox/linux-mac/work/notes.txt .notes.txt
+ln -s ~/Dropbox/linux-mac/work/agenda/agenda.current.2013.txt .agenda.current.2013.txt
+
+
+# =====================================
+# Post install apt-get command
+sudo apt-get install vim sipcalc nmon iptraf iftop pidgin terminator clipit chromium leafpad mutt-patched curl wget gedit keepassx byobu tty-clock steghide eyed3 elinks kupfer vlc nautilus gedit
+

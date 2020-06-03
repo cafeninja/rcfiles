@@ -1,0 +1,6 @@
+CONTAINER ID        IMAGE                                COMMAND             CREATED             STATUS              PORTS                                        NAMES
+028b66df3af8        matrixdotorg/synapse:latest          "/start.py"         3 days ago          Up 3 days           8009/tcp, 0.0.0.0:8008->8008/tcp, 8448/tcp   matrix_riot
+4aa2b440f94b        linuxserver/heimdall:latest          "/init"             8 days ago          Up 8 days           443/tcp, 0.0.0.0:9005->80/tcp                heimdall
+06f23da646cf        linuxserver/ombi                     "/init"             8 days ago          Up 8 days           0.0.0.0:32770->3579/tcp                      ombi
+f12e7e11107b        portainer/portainer                  "/portainer"        8 days ago          Up 8 days           0.0.0.0:9000->9000/tcp                       portainer
+05ebd58ace8d        privatebin/nginx-fpm-alpine:latest   "/init"             13 days ago         Up 9 days           80/tcp, 0.0.0.0:8080->8080/tcp               Pastebin

@@ -1,0 +1,4 @@
+docker create --name=heimdall -e PUID=1000 -e PGID=1000 -e TZ=Europe/Rome -p 80:80 -p 443:443 -v /var/lib/docker/volumes/heimdall:/config --restart unless-stopped linuxserver/heimdall
+
+
+https://hub.docker.com/r/linuxserver/heimdall

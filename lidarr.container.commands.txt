@@ -1,0 +1,8 @@
+docker volume create lidarr
+
+docker create --name=lidarr -e PUID=1000 -e PGID=1000 -e TZ=Europe/Rome -p 8686:8686 -v /var/lib/docker/volumes/lidarr:/config -v /media/Elements/astraweb/downloads/complete/Music:/music -v /media/Elements/astraweb/downloads/complete/:/downloads --restart unless-stopped linuxserver/lidarr
+
+docker lidarr up
+
+
+https://hub.docker.com/r/linuxserver/lidarr

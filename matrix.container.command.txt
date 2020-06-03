@@ -1,0 +1,9 @@
+
+docker run -it --rm --mount type=volume,src=synapse-data,dst=/data -e SYNAPSE_SERVER_NAME=matrix.ce3ps.com -e SYNAPSE_REPORT_STATS=yes matrixdotorg/synapse:latest generate
+
+docker run -d --name matrix_riot --mount type=volume,src=synapse-data,dst=/data -p 8008:8008 matrixdotorg/synapse:latest
+
+https://github.com/matrix-org/synapse/tree/master/docker
+
+for hosting webcliet on same serer:
+https://github.com/vector-im/riot-web/
