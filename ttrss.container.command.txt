@@ -1,0 +1,7 @@
+docker pull cthulhoo/ttrss-web-nginx
+use portainer to get the image and launch.
+
+https://tt-rss.org/wiki/InstallationNotes
+
+https://hub.docker.com/r/cthulhoo/ttrss-web-nginx?ref=login
+
