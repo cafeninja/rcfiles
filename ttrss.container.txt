@@ -1,0 +1,11 @@
+Was created using docker compose in the projects/tt-rss folder
+
+
+
+~/projects/ttrss-docker $ docker-compose pull && docker-compose up
+
+have activated in portainer to remain persistent and restart unless stopped.
+
+
+instructions followed to the letter:
+https://git.tt-rss.org/fox/ttrss-docker-compose/src/static-dockerhub/README.md
