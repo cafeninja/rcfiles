@@ -1,0 +1,851 @@
+
+===============================================
+TAR BALLS
+to make backup:
+tar pzcvf www.tar.gz .
+
+to restore backup:
+tar pzxvf www.tar.gz .
+
+Backup with some folders omitted:
+tar pzcvf /media/Verbatim/2013-10-05-freeza.home.tar.gz emmett/ --exclude=emmett/Dropbox --exclude=emmett/.gvfs --exclude=emmett/Downloads --exclude=emmett/Pictures --exclude=emmett/TFH --exclude=emmett/TFH\ Audacity --exclude=emmett/Backup/
+
+===============================================
+ATERM
+aterm -tr -bg black -fg white -sl 5000 -tinttype true -tint gray     
+===============================================
+SKYPE
+artsdsp -m /usr/bin/skype
+===============================================
+MYSQL
+Starts auto increment from new number place:
+ALTER TABLE theTableInQuestion AUTO_INCREMENT=1234;
+
+This creates output file:
+SELECT `svc_id`,`product_type`,`a_end`,`b_end`,`end_of_contract` into
+outfile "/home/emmett/query1.csv" fields terminated by ',' optionally
+enclosed by '"' lines terminated by "\n" FROM
+`svc_id_path`,`product_types` WHERE
+svc_id_path.type=product_types.id_num and status='1' and end_of_contract
+> 20030701 ORDER BY `end_of_contract`;
+
+
+Mailing list for PM_Config
+select email from customer_contacts, pm_config where customer_id=cust_id and sent_on="0000-00-00" order by cust_id INTO OUTFILE "/tmp/mailinglist.txt" FIELDS TERMINATED BY ',' LINES TERMINATED BY ", ";
+
+Output for Jens' site dump:
+SELECT `id_num`,`index_id`,`TS`  INTO OUTFILE "/tmp/site_update.cvs" 
+FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY
+'"' LINES TERMINATED BY "\n" FROM `site`
+
+then " scp i-nocit1:/tmp/site_update.cvs . " to bring it down.
+===============================================
+Juniper commands:
+Flapping VLL
+ -> show log messages | except UI_ | match RPD_MPLS
+===============================================
+Cisco commands:
+
+===============================================
+
+PWGEN
+pwgen --alt-phonics --capitalize 9 10
+pwgen -0BC --alt-phonics --capitalize 9 10
+===============================================
+sfp script
+ruby /usr/bin/sfp.rb
+===============================================
+sudo chmod +s /usr/bin/smbumount
+sudo chmod +s /usr/bin/smbmnt
+===============================================
+fetchmail -d 60 --keep
+===============================================
+bogofilter -n < mbox
+bogofilter -s < spam-bogofilter
+===============================================
+For mounting image files
+
+mount -t iso9660 -o loop,user image.iso /wheretomount
+mount image.mdf /wheretomount -o loop=/dev/loop0
+mount -o loop,offset=307200 image.nrg /wheretomount
+===============================================
+doom3-demo +set s_driver oss +set s_numberOfSpeakers 2 
+===============================================
+alsaconf list
+(choose the string from the output)
+asoundconf set-default-card $CARD
+===============================================
+mount -t usbfs /dev/bus/usb /proc/bus/usb
+===============================================
+%!awk '{print "set pol pref AS20718 "$2}'
+===============================================
+sudo modprobe em28xx device_mode=1 card=11 
+sudo modprobe em2880-dvb
+===============================================
+Mutt Notes (mutt section is 44 lines
+Many of Mutt's commands allow you to specify a pattern to match (limit, tag-pattern, delete-pattern, etc.). There are several ways to select messages:
+
+    ~A              all messages
+    ~b EXPR         messages which contain EXPR in the message body
+    ~B EXPR         messages which contain EXPR in the whole message
+    ~c USER         messages carbon-copied to USER
+    ~C EXPR         message is either to: or cc: EXPR
+    ~D              deleted messages
+    ~d [MIN]-[MAX]  messages with ``date-sent'' in a Date range  eg. ~d 01/01/07-23/04/07 (DD/MM/YY)
+                    i.e.  ~d -31/03/08  <-- all messages received on or before date 31 Mar 2008
+    ~E              expired messages
+    ~e EXPR         message which contains EXPR in the ``Sender'' field
+    ~F              flagged messages
+    ~f USER         messages originating from USER
+    ~g              PGP signed messages
+    ~G              PGP encrypted messages
+    ~h EXPR         messages which contain EXPR in the message header
+    ~k              message contains PGP key material
+    ~i ID           message which match ID in the ``Message-ID'' field
+    ~L EXPR         message is either originated or received by EXPR
+    ~l              message is addressed to a known mailing list
+    ~m [MIN]-[MAX]  message in the range MIN to MAX *)
+    ~n [MIN]-[MAX]  messages with a score in the range MIN to MAX *)
+    ~N              new messages
+    ~O              old messages
+    ~p              message is addressed to you (consults $alternates)
+    ~P              message is from you (consults $alternates)
+    ~Q              messages which have been replied to
+    ~R              read messages
+    ~r [MIN]-[MAX]  messages with ``date-received'' in a Date range
+    ~S              superseded messages
+    ~s SUBJECT      messages having SUBJECT in the ``Subject'' field.
+    ~T              tagged messages
+    ~t USER         messages addressed to USER
+    ~U              unread messages
+    ~v              message is part of a collapsed thread.
+    ~x EXPR         messages which contain EXPR in the `References' field
+    ~y EXPR         messages which contain EXPR in the `X-Label' field
+    ~z [MIN]-[MAX]  messages with a size in the range MIN to MAX *)
+    ~=              duplicated messages (see $duplicate_threads)
+http://www.mutt.org/doc/manual/#patterns
+Where EXPR, USER, ID, and SUBJECT are regular expressions. Special attention has to be made when using regular expressions inside of patterns. Specifically, Mutt's parser for these patterns will strip one level of backslash (\), which is normally used for quoting. If it is your intention to use a backslash in the regular expression, you will need to use two backslashes instead (\\).
+
+*) The forms <[MAX], >[MIN], [MIN]- and -[MAX] are allowed, too.
+
+limit headers = keywords 
+
+Logical AND is performed by specifying more than one criterion. 
+For example: ~t mutt ~f elkins
+would select messages which contain the word ``mutt'' in the list of recipients and that have the word ``elkins'' in the ``From'' header field.
+
+Mutt also recognizes the following operators to create more complex search patterns:
+    * ! -- logical NOT operator
+    * | -- logical OR operator (i.e. ~F | ~N  #would show Important AND New)
+    * () -- logical grouping operator
+      ... Example:  !(~t mutt|~c mutt) ~f elkins
+==========================================
+VPN:
+sudo /etc/init.d/vpnclient_init start
+sudo vpnclient connect tinet &
+sudo vpnclient disconnect
+===============================================
+bc = calculator
+===============================================
+matrix wallpaper
+xwinwrap  -ni -o 0.8 -fs -s -sp -st -b -nf -- /usr/lib/xscreensaver/xmatrix -root -density 33 -trace -knock-knock -phone 390704601920 -window-id WID
+
+killall xwinwrap
+===============================================
+add a route
+sudo route add -net 213.200.87.0 netmask 255.255.255.0 tun0
+sudo route add -net 89.149.188.0 netmask 255.255.255.0 tun0
+===============================================
+vpn using vpnc
+sudo apt-get install vpnc
+gksudo vpnc-connect /etc/vpn/c/ipsec.conf
+gksudo vpnc-disconnect 
+===============================================
+bin -> mpg
+vcdxrip -b XXX.bin
+===============================================
+gpg commands that are helpful
+gpg --output emmett.gpg --export emmett.stewart@tiscali.net
+	Produces binary file of the key export
+gpg --armor --export emmett.stewart@tiscali.net
+	Produces the text "copy/paste" version
+===============================================
+screen
+
+The following table shows the default key bindings:
+C-a '     (select)
+    Prompt for a window name or number to switch to.
+C-a      (windowlist -b)
+    Present a list of all windows for selection.
+C-a 0      (select 0)
+...      ...
+C-a 9     (select 9)
+C-a -     (select -)
+    Switch to window number 0 - 9, or to the blank window.
+C-a tab    (focus)
+    Switch the input focus to the next region.
+C-a C-a    (other)
+    Toggle to the window displayed previously.
+    Note that this binding defaults to the command character typed twice, unless overridden. For instance, if you use the option "-e]x", this command becomes "]]". 
+C-a a      (meta)
+    Send the command character (C-a) to window. See escape command.
+C-a A      (title)
+    Allow the user to enter a name for the current window.
+C-a b
+C-a C-b  (break)
+    Send a break to window.
+C-a B      (pow_break)
+    Reopen the terminal line and send a break.
+C-a c
+C-a C-c  (screen)
+    Create a new window with a shell and switch to that window.
+C-a C      (clear)
+    Clear the screen.
+C-a d
+C-a C-d  (detach)
+    Detach
+    screen from this terminal. 
+C-a D D    (pow_detach)
+    Detach and logout.
+C-a f
+C-a C-f  (flow)
+    Toggle flow on, off or auto.
+C-a F      (fit)
+    Resize the window to the current region size.
+C-a C-g    (vbell)
+    Toggles
+    screen's visual bell mode. 
+C-a h      (hardcopy)
+    Write a hardcopy of the current window to the file "hardcopy.n".
+C-a H      (log)
+    Begins/ends logging of the current window to the file "screenlog.n".
+C-a i
+C-a C-i  (info)
+    Show info about this window.
+C-a k
+C-a C-k  (kill)
+    Destroy current window.
+C-a l
+C-a C-l  (redisplay)
+    Fully refresh current window.
+C-a L      (login)
+    Toggle this windows login slot. Available only if
+    screen is configured to update the utmp database. 
+C-a m
+C-a C-m  (lastmsg)
+    Repeat the last message displayed in the message line.
+C-a M      (monitor)
+    Toggles monitoring of the current window.
+C-a space
+C-a n
+C-a C-n   (next)
+    Switch to the next window.
+C-a N      (number)
+    Show the number (and title) of the current window.
+C-a backspace
+C-a h
+C-a p
+C-a C-p   (prev)
+    Switch to the previous window (opposite of C-a n).
+C-a q
+C-a C-q  (xon)
+    Send a control-q to the current window.
+C-a Q      (only)
+    Delete all regions but the current one.
+C-a r
+C-a C-r  (wrap)
+    Toggle the current window's line-wrap setting (turn the current window's
+    automatic margins on and off). 
+C-a s
+C-a C-s  (xoff)
+    Send a control-s to the current window.
+C-a S      (split)
+    Split the current region into two new ones.
+C-a t
+C-a C-t  (time)
+    Show system information.
+C-a v      (version)
+    Display the version and compilation date.
+C-a C-v    (digraph)
+    Enter digraph.
+C-a w
+C-a C-w  (windows)
+    Show a list of window.
+C-a W      (width)
+    Toggle 80/132 columns.
+C-a x
+C-a C-x  (lockscreen)
+    Lock this terminal.
+C-a X      (remove)
+    Kill the current region.
+C-a z
+C-a C-z  (suspend)
+    Suspend
+    screen. Your system must support BSD-style job-control. 
+C-a Z      (reset)
+    Reset the virtual terminal to its "power-on" values.
+C-a .      (dumptermcap)
+    Write out a ".termcap" file.
+C-a ?      (help)
+    Show key bindings.
+C-a C-\    (quit)
+    Kill all windows and terminate
+    screen. 
+C-a :           (colon)
+    Enter command line mode.
+C-a [
+C-a C-[
+C-a esc   (copy)
+    Enter copy/scrollback mode.
+C-a ]      (paste .)
+    Write the contents of the paste buffer to the stdin queue of the
+    current window. 
+C-a {
+C-a }    (history)
+    Copy and paste a previous (command) line.
+C-a >      (writebuf)
+    Write paste buffer to a file.
+C-a <      (readbuf)
+    Reads the screen-exchange file into the paste buffer.
+C-a =      (removebuf)
+    Removes the file used by C-a < and C-a >.
+C-a ,      (license)
+    Shows where
+    screen comes from, where it went to and why you can use it. 
+C-a _      (silence)
+    Start/stop monitoring the current window for inactivity.
+C-a *      (displays)
+    Show a listing of all currently attached displays.
+===============================================
+===============================================
+Tomboy sshfs notes sync:
+
+~$ mkdir /tmp/blah
+~$ sshfs jumphost: /tmp/blah
+~$ fusermount -u /tmp/blah
+
+===============================================
+===============================================
+Get your IP
+curl -s myip.dk |grep "Box" | egrep -o '[0-9.]+'
+wget -O - -q myip.dk |grep '"Box"' | egrep -o '[0-9.]+'
+wget -O - -q myonlineportal.net/checkip
+===============================================
+Show file permissions as a number and limit by 600
+stat -c '%A %a %n' *|awk '{print " "$2" "$3}' |grep 600
+===============================================
+validate date format
+echo 2006-10-10 | grep -c '^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$'
+===============================================
+search for more than one thing with grep
+grep -i 'openid\|cafeninja' filename
+egrep 'openid|cafeninja' filename
+===============================================
+To install a ppa
+echo "deb http://ppa.launchpad.net/PROJECTNAME/ppa/ubuntu $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/gnote.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys KEYIDHERE
+sudo apt-get update
+===============================================
+===============================================
+file manager, not setting backgroud etc.
+nautilus --no-desktop --browser
+===============================================
+reset default browser to use for
+sudo update-alternatives --config x-www-browser
+===============================================
+Set tab title in ttttttttt (maybe gnome terminal too)
+export PROMPT_COMMAND='echo -ne "\033]0;testing script\007"'
+===============================================
+Remount a usb disk without physically removing and reinserting
+eject /dev/sdb; sleep 1; eject -t /dev/sdb
+===============================================
+make dir using date format YYYY-MM-DD
+mkdir `date --iso`
+===============================================
+Record a screencast and convert it to an mpeg
+ffmpeg -f x11grab -r 25 -s 800x600 -i :0.0 /tmp/outputFile.mpg
+===============================================
+Convert mp3 to ogg.  On folder with *.ogg inside:
+for name in *.ogg; do ffmpeg -i "$name" -ab 128k "${name/.ogg/.mp3}"; done;
+===============================================
+Uses ssh as tunnel tunnel for an other connection
+ssf -f -N -L 4321:home.network.com:25 user@home.network.com
+===============================================
+Run a command, store the output in a pastebin on the internet and place the URL on the xclipboard:
+ls | curl -F 'sprunge=<-' http://sprunge.us | xclip
+===============================================
+Find broken symlinks and delete them
+find -L /path/to/check -type l -delete
+find -L /path -type l <---list
+find -L /path -type l -exec rm -i {} + <-- confirmation
+===============================================
+Convert AVI to iPhone MP4
+ffmpeg -i [source].avi -f mp4 -vcodec mpeg4 -b 250000 -s 480?320 -acodec aac -ar 24000 -ab 64 -ac 2 [destination].mp4
+===============================================
+Convert DVD ISO -> MP4
+mount -o loop -t iso9660 my.iso /mnt/something
+$RIP ISO INTO VOB
+ffmpeg -i concat:VTS_02_1.VOB\|VTS_02_2.VOB\|VTS_02_3.VOB\|VTS_02_4.VOB\|VTS_02_5.VOB -map 0:v:0 -map 0:a:0 -codec:a libvo_aacenc -ab 128 -codec:v libx264 -vpre libx264-ipod640 movie.mp4
+===============================================
+import gpg key from the web
+curl -s http://defekt.nl/~jelle/pubkey.asc | gpg --import
+===============================================
+Update your OpenDNS network ip
+wget -q --user=your_username --password=your_pwd 'https://updates.opendns.com/nic/update?hostname=your_opendns_hostname&myip=your_ip' -O -
+===============================================
+Multiple SSH Tunnels
+ssh -L :: -L :: @
+===============================================
+Migrate existing Ext3 filesystems to Ext4
+tune2fs -O extents,uninit_bg,dir_index /dev/yourpartition
+fsck -pDf /dev/yourpartition
+===============================================
+Set an alarm to wake up [2]
+echo "aplay path/to/song" |at [time]
+===============================================
+replace spaces in filenames with underscores
+rename 'y/ /_/' *
+===============================================
+Cracking a password protected .rar file
+for i in $(cat dict.txt);do unrar e -p$i protected.rar; if [ $? = 0 ];then echo "Passwd Found: $i";break;fi;done
+===============================================
+Convert man page to PDF
+man -Tps ls >> ls_manpage.ps && ps2pdf ls_manpage.ps
+===============================================
+clone a hard drive to a remote directory via ssh tunnel, and compressing the image
+# dd if=/dev/sda | gzip -c | ssh user@ip 'dd of=/mnt/backups/sda.dd'
+===============================================
+Sort and count unique
+sort | uniq -c | sort -n
+===============================================
+directly ssh to host B that is only accessible through host A
+ssh -t hostA ssh hostB
+===============================================
+FLV to AVI with subtitles and forcing audio sync
+mencoder -sub subs.ssa -utf8 -subfont-text-scale 4 -oac mp3lame -lameopts cbr=128 -ovc lavc -lavcopts vcodec=mpeg4 -ffourcc xvid -o output.avi YqC73omSk4o.flv
+===============================================
+Backup files older than 1 day on /home/dir, gzip them, moving old file to a dated file.
+find /home/dir -mtime +1 -print -exec gzip -9 {} \; -exec mv {}.gz {}_`date +%F`.gz \;
+===============================================
+sort lines by length
+awk '{print length, $0;}' | sort -nr
+===============================================
+Check a server is up. If it isn't mail me.
+ping -q -c1 -w3 brandx.jp.sme 2&>1 /dev/null || echo brandx.jp.sme ping failed | mail -ne -s'Server unavailable' joker@jp.co.uk
+curl -fs brandx.jp.sme 2&>1 > /dev/null || echo brandx.jp.sme ping failed | mail -ne -s'Server unavailable' joker@jp.co.uk
+===============================================
+convert vdi to vmdk (virtualbox hard disk conversion to vmware hard disk format)
+VBoxManage internalcommands converttoraw winxp.vdi winxp.raw && qemu-img convert -O vmdk winxp.raw winxp.vmdk && rm winxp.raw
+===============================================
+for gnome pop-up window
+zenity --info --text "message here"
+===============================================
+figlet Yell | cowsay -n
+===============================================
+IRC:  freenode.net
+/msg NickServ identify PASSWORD
+/msg chanserv op #h4cked
+===============================================
+Ping flood
+ sudo ping -f -s 56500 192.168.0.108 
+===============================================
+add a user on cli also for existing home dir
+sudo adduser --home /home/elena elena
+sudo chown -R elena.elena /home/elena   <-- when home dir already exists
+sudo usermod -aG admin elena
+sudo usermod -aG audio elena
+===============================================
+get your ip
+curl http://ip.appspot.com/
+===============================================
+merge avi files
+mencoder -oac copy -ovc copy part1.avi part2.avi part3.avi -o WHOLE-THING.avi
+===============================================
+convert ogv to avi
+mencoder out.ogv -o output.avi -ovc lavc
+===============================================
+convert m4b audiobook to mp3
+for i in *.m4b; do ffmpeg -i "$i" -acodec libmp3lame -ab 320k "new-$i.mp3" ; done
+===============================================
+
+gnome window buttons back on the right:
+gconftool-2 --set "/apps/metacity/general/button_layout" --type string ":minimize,maximize,close"
+===============================================
+rsstail with Emmett sane defaults
+rsstail -u http://rss.cnn.com/rss/money_latest.rss -t -H -i 60 -N
+===============================================
+trackpad stuff:
+killall syndaemon
+gsynaptics
+synclient TouchpadOff=1
+synclient TouchpadOff=0
+===============================================
+du -h --max-depth=1 .
+===============================================
+synergyc --name cooler 10.222.90.49
+synergys --daemon
+===============================================
+video screen capture using ffmpeg
+first window dimensions/screensize  -->  xwininfo  look for the WxH + corner
+ffmpeg -f x11grab -s 657x435 -r 10 -i :0.0+1261,52 -s 657x435 -r 10 -sameq screencapture.avi
+===============================================
+remove startup daemon
+sudo update-rc.d -f asterisk remove
+===============================================
+root startup one-time-run scritps
+/etc/rc.local
+===============================================
+ffmpeg -f alsa -ac 2 -i hw:0,0 -f x11grab -r 30 -s $(xwininfo -root | grep 'geometry' | awk '{print $2;}') -i :0.0 -acodec pcm_s16le -vcodec libx264 -vpre lossless_ultrafast -threads 0 -y output.mkv
+===============================================
+tty-clock -s -c -C 6
+===============================================
+busy - screen occupied:
+dialog --gauge "Processing..." 6 40 36
+timelimit -t120 cat /dev/urandom | hexdump -d |grep "25"
+for i in `seq 0 100`;do timeout 6 dialog --gauge "Install..." 6 40 "$i";done
+while [ true ]; do head -n 100 /dev/urandom; sleep .1; done | hexdump -C | grep "ca fe"
+cycle 1 3 $(openssl rand 100 | xxd -p)
+while :;do echo -e "\033[1mCHECKING\033[0m $(find /usr/include -type f | sort -R | head -n 1)";sleep $((RANDOM%2));done
+
+##############################
+##### PODCAST ################
+##############################
+
+## software requirement "sudo apt-get install eyed3"
+## Inserting the show notes into the image.
+steghide --embed -ef "TFH-001.txt" -cf TFH-001.jpg -e rijndael-256 -p tinfoilhat -sf TFH-001a.jpg
+
+## for inserting the image into the file:
+eyeD3 --add-image=tfh-001-albumart.jpg:FRONT_COVER TFH-001-test.embeded.mp3
+
+## for adding all the other id3 tags:
+eyeD3 --album="Tin Foil Hat Show" --title="The Sources" --year="2010" --track=002 --artist="CafeNinja" --comment=eng:"Show Notes":"Get the commands at http://cafeninja.blogspot.com" TFH-002.mp3
+
+## adding the wav files in order:
+
+
+##  unlock code for users:
+eyed3 --write-image=./ $Filename.mp3
+steghide extract -sf FRONT_COVER.jpeg
+less tfh-00X.txt
+
+##############################
+cronjob silent : 0 0 1,15,20 * * /home/your_username/run-me.sh >/dev/null 2>&1 
+##############################
+update time
+sudo ntpd -qg &
+##############################
+conky -c ~/Dropbox/linux-bak/conkyrc-with-weather 
+##############################
+firefox-4.0 -P PROFILENAME -no-remote
+##############################
+add service
+sudo update-rc.d foobar defaults
+remove service
+sudo update-rc.d -f dnsmasq remove
+##############################
+sleep 10; echo "job done"|mail -ne -s'Job Done' emmettstewart@gmail.com
+sleep 5; cat server-todo.txt |mail -ne -s'Server list' emmettstewart@gmail.com
+##############################
+backup pgp keys
+zip -r pgp-keys-201108.zip .gnupg
+mv pgp-keys-201108.zip Dropbox/linux-mac/
+##############################
+vim autoindent on/off
+:set noautoindent
+:set autoindent
+##############################
+vim re-wrap text
+if needed...  
+:set textwidth=80
+:set wrapmargin=2
+gpG = whole document set to value.
+gq$ = current line
+##############################
+vim redo   Ctrl-r
+##############################
+##############################
+##############################
+zcat mia11.4.gz | grep -v "UI_" | grep "so-6/0/0" >> ~fpau/mia11-so-6-0-0.txt
+##############################
+convert input.png -pointsize 32 -gravity center -annotate 45 "hello, world" output.png
+##############################
+finch commands:
+
+Alt + a – Use this to see a list of possible actions for Finch.
+Alt + n – Jump to the next window.
+Alt + p – Jump to the last window.
+Alt + w – This will allow you to select the window you want to bring to the front.
+Alt + c – You can close a window or a message with this shortcut.
+Alt + q – Use this to quit Finch.
+Alt + m – With this you can move a window with the arrow keys. When finished press Enter or Escape to exit move mode.
+Alt + r – Resizes windows with the Arrow keys. Use Enter or Exit to leave resize mode.
+Alt + l – This will refresh your finch windows and can be useful after resizing or moving windows.
+Alt + 1 – You can use the Alt key with any number to just to that window in the list.
+Alt + Tab – This will open a highlighted or urgent window if there is one.
+Alt + Shift + Tab – Will open a previously highlighted message.
+Ctrl + o – Use this to access a list of options for the open window.
+Alt + / – Get more keyboard shortcuts.
+F9 – If Finch becomes cluttered you can create a new workspace with this command allowing you to move windows around freeing up space.
+Alt + s – This will show a list of your workspaces.
+alt + t – Use this to tag windows for movement.
+alt + T – This will move all of your tagged windows into the current workspace. Make sure you switch to the new workspace first with the windows already tagged.
+Alt + > – This shortcut will switch to your next workspace.
+Alt + < – Switch to your previous workspace.
+##############################
+byobu keybindings:
+F2           Create a new window
+F3           Move to the next window
+F4           Move to the previous window
+F5           Refresh all status notifications
+F6           Detach from the session and logout
+Shift-F6     Detach from the session, but do not logout
+F7           Enter scrollback/search mode
+F8           Rename the current window
+F9           Launch the Byobu Configuration Menu
+F12          GNU Screen's Escape Key
+Alt-Pageup   Scroll back through this window's history
+Alt-Pagedown Scroll forward through this window's history
+Shift-F2     Split the screen horizontally
+Ctrl-F2      Split the screen vertically
+Shift-F3     Move focus to the next split
+Shift-F4     Move focus to the previous split
+Shift-F5     Collapse all splits
+Ctrl-F5      Reconnect any SSH/GPG sockets or agents    
+Ctrl-a-!     Toggle all of Byobu's keybindings on or off
+##############################
+Serve current directory as a web server on localhost:8000
+python -m SimpleHTTPServer
+##############################
+change user password for user john
+sudo passwd john
+##############################
+disk usage per dir one level down with summary
+du -shc */
+##############################
+festival required
+festival --tts test2 (file)
+cat << eof > talk.sh
+>#!/bin/bash
+>xsel | festival --tts --pipe
+kbcombo for talk.sh
+
+
+##############################
+JSON to xml (kinda)
+echo '{"foo": "lorem", "bar": "ipsum"}' | python -mjson.tool
+##############################
+ssh proxy
+ssh -N -D 1337 emmett@jh.ip4.tinet.net
+set proxy to 127.0.0.1:1337
+##############################
+Google Search for mp3 files
+-inurl:(htm|html|php) intitle:"index of" +"last modified" +"parent directory" +description +size +(wma|mp3) "artist|album|track|etc"
+##############################
+qrcode commandline - install qrencode
+qrencode -t ansi 'http://www.google.com'
+qrencode -t ansi 'smsto:3803893424:Where are you guys?'
+##############################
+date 11 weeks ago:
+date --date='11 weeks ago'
+##############################
+Folders listing
+du -h --max-depth=1
+##############################
+Character typing (right meta key=compose)
+compose + c/ = ¢
+##############################
+convert docx (to copy, is destructive)
+uniconv -f text file.docx
+##############################
+evebot mumble mimick for audio check
+cd to mumble-bot folder
+~/mumble-bot/mumble-scripts-mumble-scripts/Non-RPC/eveBot $ 
+./eve-bot.py -d 5 -e "Testing-Audio" -r "Testing-Audio" -s "ce3ps.com" -p 64738
+##############################
+GNOME3
+create new shortcut:
+sudo gnome-desktop-item-edit /usr/share/applications/new-launcher.desktop --create-new
+##############################
+write iso to usb
+dd if=<file> of=<device> bs=4M; sync
+write img to disk
+dd if=path_of_your_image.img of=/dev/diskn bs=1m
+##############################
+gpg permissions
+chmod 700 .gnupg
+chown -R emmett:emmett .gnupg
+cd ~/.gnupg
+chmod 600 *
+cd .. 
+
+##############################
+Time update in Arch or Manjaro
+sudo ntpd -qg
+##############################
+Sending a file over icmp with hping
+hping3 10.0.2.254 --icmp --sign MSGID1 -d 50 -c 1 --file a_file
+
+you need to start a listening hping on the reciever:
+hping3 --listen 10.0.2.254 -I eth0 --sign MSGID1
+##############################
+open ports and the processes that own them.
+lsof -i -P | grep -i "listen"
+##############################
+find -size +100M
+
+##############################
+Time Update ntp
+sudo ntpdate pool.ntp.org
+##############################
+convert flac to mp3.  install flac and lame.  in same folder:
+for f in *.flac; do flac -cd "$f" | lame -b 320 - "${f%.*}".mp3; done
+##############################
+discover port channel
+show lacp inteface ae0
+show etherchannel port-channel 1
+##############################
+compare two configs:
+lon11-re1> show configuration | compare rollback ?
+lon11-re1> show system rollback compare 0 1
+##############################
+hardware info per pic/port
+cr1.iad1> show chassis pic fpc-slot 3 pic-slot 2 
+port details follow in output.
+
+For: xe-3/2/0        up    up   AGGR:ae9:SW1.IAD3:CH21/CH21
+##############################
+Channel on DWDM link
+show chassis pic fpc-slot 7 pic-slot 1  
+http://www.flexoptix.net/en/dwdm-channels/ 
+##############################
+spyman process stuck
+??
+##############################
+GIT commands
+git clone <URL>
+git add *   <-- to queue up your changes
+git commit -m "Comment"  <--- set note for the changes
+git push origin master  <-- sends the changes back.
+##############################
+clobber for shell - don't overwrite
+set -o noclobber = active overwrite protection (>|)
+set +o noclobber = disactivate overwrite
+##############################
+fix for: Error opening terminal: screen-bce.
+export TERM=xterm
+##############################
+Let's Encrypt key renewal
+certbot renew
+sudo certbot renew --dry-run
+##############################
+Build nginx site:
+ Create new site config file in /etc/nginx/sites-available (i.e. sub.site.tld)
+ Create soft symlink to that file in /etc/nginx/sites-enabled 
+ Test config with "sudo nginx -t"
+ Create certificate with "sudo certbot --nginx -d SUB.SITE.TLD"
+##############################
+Find and replace text in file from command line
+sed -i 's/original/new/g' file.txt
+Explanation:
+	- 
+	- sed = Stream EDitor
+	- -i = in-place (i.e. save back to the original file)
+	- The command string:
+	- s = the substitute command
+	- original = a regular expression describing the word to replace (or just the word itself)
+	- new = the text to replace it with
+	- g = global (i.e. replace all and not just the first occurrence)
+	- file.txt = the file name
+##############################
+grep lines which are not config (starts with # or ;)
+grep ^[^#\;]
+##############################
+Combine PDF's in a folder together
+pdftk 201* cat output statements.pdf
+##############################
+##############################
+Dropbox refresh
+unset DISPLAY
+cd
+rm -rf .dropbox-dist
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+##############################
+When certbot pukes - nuke and pave
+# rm -rf ~/.local/share/letsencrypt
+# rm -rf /opt/eff.org/certbot/
+$ certbot-auto
+##############################
+LAN host scan
+nmap -sn 192.168.2.0/24
+##############################
+Star Wars over telnet
+telnet towel.blinkenlights.nl
+#############################
+Youtube Downloader MP3  for single vid or playlist
+youtube-dl --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3 --audio-quality 0 
+alias ytmp3
+youtube-dl -F $URL = get all available formats
+youtube-dl -f ## $UR$L = get THAT version of the download
+##############################
+recipe for service obliteration (be careful with the rm statements!)
+
+systemctl stop [servicename]
+systemctl disable [servicename]
+rm /etc/systemd/system/[servicename]
+rm /etc/systemd/system/[servicename] symlinks that might be related
+systemctl daemon-reload
+systemctl reset-failed
+##############################
+Start Radarr
+sudo /usr/bin/mono /opt/Radarr/Radarr.exe -nobrowser
+##############################
+Start Sonarr
+sudo /usr/bin/mono /opt/Sonarr/NzbDrone.exe -nobrowser
+##############################
+netstat listening or open ports
+sudo netstat -plnt4
+##############################
+Remove older kernels in Fedora, keeps only current.
+sudo dnf remove $(dnf repoquery --installonly --latest-limit=-1 -q)
+
+Check how many kernels are installed
+rpm -qa kernel\* |sort -V
+##############################
+Gmail search for dates to match labels
+"after:2019/6/30 before:2019/10/1"  = 2019Q3
+"after:2019/9/30 before:2019/12/31" = 2019Q4
+##############################
+bash for each uses
+for file in `ls *.txt`; do cat "$file"; done
+for((i=1;i<=10;i++)){ touch "$i".txt; }
+cat /tmp/tables | while read line; do echo "$line"; done
+##############################
+random mac address generator
+date | md5sum | sed -r 's/(..){3}/\1:/g;s/\s+-$//'
+##############################
+Connect to shell on docker container
+docker exec -it <mycontainer> bash(or /bin/sh)
+##############################
+synergy connect to pi-optimus
+synergyc --daemon 192.168.1.11
+##############################
+synergy connect to work laptop
+synergyc --daemon 192.168.1.133
+##############################
+Example of job definition:
+.---------------- minute (0 - 59)
+| .------------- hour (0 - 23)
+| | .---------- day of month (1 - 31)
+| | | .------- month (1 - 12) OR jan,feb,mar,apr ...
+| | | | .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+| | | | |
+* * * * * command to be executed
+0 0 * * 0 /sbin/shutdown -r now # reboot every sunday at 00:00 am
+##############################
+##############################
+##############################
+##############################
+##############################
+##############################
+##############################
