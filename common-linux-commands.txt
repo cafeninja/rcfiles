@@ -693,7 +693,7 @@ open ports and the processes that own them.
 lsof -i -P | grep -i "listen"
 ##############################
 find -size +100M
-
+https://www.lifewire.com/uses-of-linux-command-find-2201100
 ##############################
 Time Update ntp
 sudo ntpdate pool.ntp.org
