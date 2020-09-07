@@ -1,0 +1,12 @@
+
+
+git clone https://github.com/gzurowski/docker-subsonic.git
+
+Email: emmettstewart@gmail.com
+License: 166413757e91893356327f38766a8ead 
+
+http://www.linuxtechi.com/build-docker-container-images-with-dockerfile/
+
+In the same directory as the cloned git repo
+  docker build -t cafeninja_arm/subsonic .
+
