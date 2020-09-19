@@ -1,0 +1,6 @@
+
+https://www.electromaker.io/tutorial/blog/get-started-with-docker-on-the-raspberry-pi
+
+docker pull linuxserver/plex
+docker create --name=plex --net=host -e PUID=<UID> -e PGID=<GID> -v /home/pi/Videos/config:/config -v /home/pi/Videos/tvshows:/data/tvshows -v /home/pi/Videos/movies:/data/movies -v /home/pi/Videos/transcode:/transcode linuxserver/plex
+docker run plex
