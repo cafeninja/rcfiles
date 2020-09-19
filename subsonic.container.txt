@@ -10,3 +10,4 @@ http://www.linuxtechi.com/build-docker-container-images-with-dockerfile/
 In the same directory as the cloned git repo
   docker build -t cafeninja_arm/subsonic .
 
+sudo docker run -it --rm --publish 4041:4040 --volume "/media/Elements/astraweb/downloads/complete/Music:/var/music:ro" --volume "Subsonic:/var/subsonic" --name=Subsonic 0b803089acd4
